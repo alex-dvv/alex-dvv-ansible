@@ -1,0 +1,31 @@
+---
+  - hosts: test
+    remote_user: root
+    become: yes 
+    become_user: root
+    become_method: sudo
+    tasks:
+    - name: create administrator user
+      user:
+         name: administrator
+         shell: /bin/bash 
+         home: /home/administrator
+         password: '$6$xXnsp4EXQ/$qGRgb10RocphBMsnkdIFKdz3NUrRxe3aznkuW9brxwkVkmcI56lNQB9AfmpuobEuRxtZs9vp/4imwKBgCc06B0'
+    - name: copy ssh pubkey to home directory
+      authorized_key:
+         user: ansible
+         key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    - name: adding ansible user to sudoers
+      lineinfile: 
+         dest: /etc/sudoers 
+         line: "administrator ALL=(ALL:ALL) ALL" 
+         validate: 'visudo -cf %s'
+    - name: OpenVPN | Harden | sshd configuration
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: "{{ item.reg }}"
+        line: "{{ item.line }}"
+        state: present
+        validate: '/usr/sbin/sshd -T -f %s'
+      with_items:
+         - { reg: '^(#)?PermitRootLogin', line: 'PermitRootLogin no'}

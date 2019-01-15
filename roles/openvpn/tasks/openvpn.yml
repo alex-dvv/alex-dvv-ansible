@@ -1,0 +1,14 @@
+---
+
+- name: OpenVPN | sysctl | Enable IPv4 traffic forwarding
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: 1
+
+- name: OpenVPN | Configuration | Copy OpenVPN server configuration files into place
+  template:
+    src: openvpn_server.conf.j2
+    dest: "{{ openvpn_path }}/server.conf"
+  with_items: "{{ openvpn_instances }}"
+  notify:
+    - start openvpn

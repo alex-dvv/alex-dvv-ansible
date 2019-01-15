@@ -1,0 +1,5 @@
+---
+# Zabbix server to connect to
+  zabbix_agent_server: 172.0.0.225
+  zabbix_agent_serveractive: 172.0.0.225
+  zabbix_agent_hostname: "{{ansible_hostname}}"

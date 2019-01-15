@@ -1,0 +1,19 @@
+- name: OpenVPN | dns | Generate dnsmasq configuration file
+  template:
+    src: etc_dnsmasq.conf.j2
+    dest: /etc/dnsmasq.conf
+  notify:
+    - start dnsmasq
+
+- name: OpenVPN | dns | systemd - enable service
+  service:
+    name: dnsmasq
+    enabled: true
+- name: Dnsmasq | Harden | dnsmasq configuration
+  lineinfile:
+    dest: /etc/dnsmasq.conf
+    regexp: "{{ item.reg }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - { reg: '^(#)?interface=', line: 'interface=tun'}

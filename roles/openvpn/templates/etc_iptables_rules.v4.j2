@@ -1,0 +1,8 @@
+*nat
+:PREROUTING ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+{% for instance in openvpn_instances %}
+-A POSTROUTING -s {{ instance.cidr }} -o {{ ansible_default_ipv4.interface }} -j MASQUERADE
+{% endfor %}
+COMMIT

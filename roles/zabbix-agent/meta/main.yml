@@ -1,0 +1,12 @@
+galaxy_info:
+  author: Alex
+  min_ansible_version: 1.6
+
+  platforms:
+  - name: Debian
+    versions:
+    - wheezy
+  
+  galaxy_tags:
+    - zabbix
+    - monitoring

@@ -1,0 +1,9 @@
+---
+- name: restart ntpd
+  service:
+    name: ntpd
+    state: restarted
+  when: ntpd_enabled
+
+- name: restart zabbix-agent
+  service: name=zabbix-agent state=restarted

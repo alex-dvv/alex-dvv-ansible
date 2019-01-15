@@ -1,0 +1,7 @@
+---
+
+ - include: install.yml
+ - include: pki.yml
+ - include: openvpn.yml
+ - include: dns.yml
+ - include: firewall.yml

@@ -1,0 +1,8 @@
+---
+- hosts: windows
+  remote_user: root
+  tasks:
+  - name: Install specific updates based on the KBs for those updates
+    win_updates:
+      category_name:
+      - SecurityUpdates

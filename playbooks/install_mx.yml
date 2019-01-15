@@ -1,0 +1,21 @@
+---
+- hosts: test
+  tasks:
+
+  - include: update_os.yml
+
+  - name: Install a list of packages
+    become: yes
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - rsync
+      - tmux
+      - sudo
+      - ntp ntpdate
+      - htop
+      - mc
+      - wget
+      - net-tools
+      - apt-transport-https

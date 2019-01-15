@@ -1,0 +1,24 @@
+---
+# vars file for windows-desktop-packages
+windows_desktop_packages_version:
+  - googlechrome:
+windows_desktop_packages_latest:
+#   - slack
+#   - psi
+#  - chocolatey
+#  - firefox
+#  - jre8
+#  - conemu
+#  - 7zip.install
+#  - openoffice
+#  - cdburnerxp
+#  - adobereader
+  - winscp
+uninstall_program:
+   - slack
+   - psi.install
+   - conemu
+   - openoffice
+   - cdburnerxp
+   - adobereader
+   - winscp.install

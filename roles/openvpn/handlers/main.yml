@@ -1,0 +1,10 @@
+- name: start openvpn
+  service:
+    name: "openvpn@server.service"
+    state: started
+  with_items: "{{ openvpn_instances }}"
+
+- name: start dnsmasq
+  service:
+    name: dnsmasq
+    state: started

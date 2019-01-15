@@ -1,0 +1,21 @@
+---
+
+#  - name: Install packages - Control version
+#    win_chocolatey: name={{ item.name }} force={{ item.force }} version={{ item.version }}
+#    with_items: "{{ windows_desktop_packages_version }}"
+
+#  - include: chokolatey.yml
+
+#  - name: add new internal source
+#    win_chocolatey: name=mypakget state=present source="/home/administrator/mypakget/"
+  
+#  - name: Install packages - Latest version
+#    win_chocolatey: name={{item}} state=latest
+#    with_items: "{{ windows_desktop_packages_latest }}"
+  
+#   - name : Uninstall programm 
+#     win_chocolatey: name={{item}} state=absent
+#     with_items: "{{ uninstall_program }}"
+
+#    - name: Uninstall 7zip without specifying the path
+#      win_package: path="C:\Program Files (x86)\Psi\Uninstall.exe" creates_service=Psi.exe  creates_path="C:\Program Files (x86)\Psi\Psi.exe" product_id=Psi.exe arguments=/S state=absent
