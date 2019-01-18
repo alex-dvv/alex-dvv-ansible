@@ -4,7 +4,7 @@
 
   roles:
     - common  
-#    - openvpn
+    - openvpn
 
   post_tasks:
     - name: OpenVPN | install | Restart system after setup
