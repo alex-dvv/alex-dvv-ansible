@@ -1,0 +1,16 @@
+{
+    "ansible.fileCopyConfig": [
+        {
+            "server": "172.0.3.49",
+            "sourcePath": "c:\\Users\\aleksandr.ovodov\\Documents\\GitHub\\alex-dvv-ansible\\alex-dvv-ansible/",
+            "targetPath": "NotShowThisAgain",
+            "copyOnSave": true
+        },
+        {
+            "server": "172.0.3.44",
+            "sourcePath": "c:\\Users\\aleksandr.ovodov\\Documents\\GitHub\\alex-dvv-ansible\\alex-dvv-ansible/",
+            "targetPath": "NotShowThisAgain",
+            "copyOnSave": true
+        }
+    ]
+}
