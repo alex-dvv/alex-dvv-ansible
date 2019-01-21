@@ -1,9 +1,11 @@
 ---
   - name: Update
-    apt: update_cache=yes
+    apt:
+     update_cache: yes
   
   - name: Upgrade
-    apt: upgrade=dist
+    apt: 
+     upgrade: dist
   
   - name: Устанавливаем требуемые пакеты
     apt:
