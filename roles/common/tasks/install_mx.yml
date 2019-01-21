@@ -1,13 +1,7 @@
 ---
-<<<<<<< HEAD
-  - name: Update
-    apt:
-     update_cache: yes
-=======
 #  - name: Update
 #    apt: 
 #     update_cache: yes
->>>>>>> bb321bc4edd2283f22b3c270248dd01c7db469b5
   
   - name: Upgrade
     apt: 
