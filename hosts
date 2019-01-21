@@ -42,7 +42,7 @@
 
 ## db-[99:101]-node.example.com
 [test]
-172.0.2.150 
+172.0.3.49 
 #ansible_ssh_user=root 
 [windows]
 #windowstest3 ansible_host=172.0.3.42
