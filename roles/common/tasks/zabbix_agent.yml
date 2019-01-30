@@ -18,7 +18,8 @@
 >>>>>>> 6643c351be4bfd2d5b15ff4aecee053ffc406c20
 
  - name: Apt install Zabbix release in Ubuntu/Debian
-   apt: deb="/tmp/zabbix-release_3.2-1.deb"
+   apt: 
+    deb: /tmp/zabbix-release_3.2-1.deb
    when: ansible_os_family == "Debian"
  
  - name: Apt install Zabbix agent
