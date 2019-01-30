@@ -7,15 +7,9 @@
   
  - name: Download Zabbix Debian 9 (Stretch) release deb file
    get_url:
-<<<<<<< HEAD
     url: http://repo.zabbix.com/zabbix/3.2/debian/pool/main/z/zabbix-release/zabbix-release_3.2-1+stretch_all.deb
     dest: /tmp/zabbix-release_3.2-1.deb
     when: ansible_os_family == "Debian" and ansible_distribution == "Debian" and ansible_distribution_major_version|int == 9
-=======
-     url="http://repo.zabbix.com/zabbix/3.2/debian/pool/main/z/zabbix-release/zabbix-release_3.2-1+stretch_all.deb" 
-     dest="/tmp/zabbix-release_3.2-1.deb"
-   when: ansible_os_family == "Debian" and ansible_distribution == "Debian" and ansible_distribution_major_version|int == 9
->>>>>>> 6643c351be4bfd2d5b15ff4aecee053ffc406c20
 
  - name: Apt install Zabbix release in Ubuntu/Debian
    apt: 
