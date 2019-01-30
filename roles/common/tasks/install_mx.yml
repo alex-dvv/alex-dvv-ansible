@@ -9,7 +9,7 @@
   
   - name: Устанавливаем требуемые пакеты
     apt:
-      name: "{{ item }}"
+      name: "{{ packages }}"
       state: "present"
     with_items: "{{ packages }}"
     when: ansible_os_family == "Debian"

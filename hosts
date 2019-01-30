@@ -42,7 +42,8 @@
 
 ## db-[99:101]-node.example.com
 [test]
-#ansible_ssh_user=root 
+172.0.3.37
+#ansible_ssh_user=administrator 
 [windows]
 #windowstest3 ansible_host=172.0.3.42
 windowstest ansible_host=172.0.3.78
