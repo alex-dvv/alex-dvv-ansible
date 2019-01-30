@@ -16,6 +16,9 @@ packages:
       - mc
       - wget
       - net-tools
+      - python-apt
+      - python3-apt
+      - aptitude
       - apt-transport-https 
 
 # Zabbix server to connect to
