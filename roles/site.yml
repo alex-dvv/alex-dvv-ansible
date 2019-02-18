@@ -3,8 +3,9 @@
 #  remote_user: root
 
   roles:
+    - Bareos
   # - zabbix-agent
-    - common  
+  #  - common  
    #### - openvpn
 
   post_tasks:
