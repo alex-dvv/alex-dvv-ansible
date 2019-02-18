@@ -6,16 +6,16 @@
 # Fill in appropriate values below unless passing from a higher precedence
 
 # Имя хоста машины, для которой вы создаете резервную копию
-add_job_to_bareos_director_host_name: "ws1348"
+add_job_to_bareos_director_host_name: "msk-fileserver"
 
 # Полное доменное имя или IP-адрес компьютера, который вы добавляете для резервного копирования
-add_job_to_bareos_director_server_fqdn: "172.0.3.42"
+add_job_to_bareos_director_server_fqdn: "172.0.0.107"
 
 # Полное доменное имя или IP-адрес, где работает демон / служба Bareos Storage.
 add_bareos_storage_daemon_fqdn: "backup-disk3"
 
 # Пароль должен соответствовать введенному клиентскому паролю при добавлении клиентской программы bareos на компьютер, который вы хотите сделать резервную копию. Значение для этого обычно является очень длинной строкой (47 символов) случайных символов.
-add_job_to_bareos_director_client_password: "123qwe!E"
+add_job_to_bareos_director_client_password: "FS/tNxEM3FYzH299frpGaNgWYCAeYz2tb3nOqyhSPqgl"
 
 # The storage director password variable is the bareos-dir password found on your Bareos Server
 #add_job_to_bareos_director_storage_director_password: "{{ lookup('env', 'BAREOS_STORAGE_PASSWORD') }}"

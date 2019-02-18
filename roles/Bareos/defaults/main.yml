@@ -10,11 +10,11 @@ add_job_to_bareos_director_job_retention: 2 months
 
 
 # How long to actually store the backup files
-add_job_to_bareos_director_volume_retention_full: 12 months
+add_job_to_bareos_director_volume_retention_full: 3 months
 # Maximum size of each backup volume/file
-add_job_to_bareos_director_maximum_volume_bytes_full: 10G
+add_job_to_bareos_director_maximum_volume_bytes_full: 50G
 # Limit number of Volumes in Pool
-add_job_to_bareos_director_maximum_volumes_full: 10
+add_job_to_bareos_director_maximum_volumes_full: 100
 
 # How long to actually store the backup files
 add_job_to_bareos_director_volume_retention_incremental: 12 months
