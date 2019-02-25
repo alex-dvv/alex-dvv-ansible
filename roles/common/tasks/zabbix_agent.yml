@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
  - name: Check if any version of agent is already installed
    stat: 
     path: /usr/sbin/zabbix_agentd
@@ -15,36 +16,82 @@
    apt: 
     deb: /tmp/zabbix-release_3.2-1.deb
    when: ansible_os_family == "Debian"
+=======
+- name: Check if any version of agent is already installed
+  stat: 
+   path: /usr/sbin/zabbix_agentd
+  register: zabbix_agent_installed
+  
+- name: Download Zabbix Debian 7 (Wheezy) release deb file
+  get_url: 
+   url="http://repo.zabbix.com/zabbix/3.2/debian/pool/main/z/zabbix-release/zabbix-release_3.2-1+wheezy_all.deb"
+   dest="/tmp/zabbix-release_3.2-1.deb"
+  when: ansible_os_family == "Debian" and ansible_distribution == "Debian" and ansible_distribution_major_version|int == 7
+
+- name: Download Zabbix Debian 8 (Jessie) release deb file
+  get_url: 
+   url="http://repo.zabbix.com/zabbix/3.2/debian/pool/main/z/zabbix-release/zabbix-release_3.2-1+jessie_all.deb"
+   dest="/tmp/zabbix-release_3.2-1.deb"
+  when: ansible_os_family == "Debian" and ansible_distribution == "Debian" and ansible_distribution_major_version|int == 8
  
- - name: Apt install Zabbix agent
-   apt:
-     name: zabbix-agent
-     update_cache: yes
-   when: ansible_os_family == "Debian"
+- name: Download Zabbix Debian 9 (Stretch) release deb file
+  get_url:
+   url="http://repo.zabbix.com/zabbix/4.0/debian/pool/main/z/zabbix-release/zabbix-release_4.0-2+stretch_all.deb" 
+   dest="/tmp/zabbix-release_4.0-2.deb"
+  when: ansible_os_family == "Debian" and ansible_distribution == "Debian" and ansible_distribution_major_version|int == 9
 
- - name: Configure zabbix-agent
-   template:
-    src: /etc/ansible/roles/common/templates/zabbix_agent.conf.j2
-    dest: /etc/zabbix/zabbix_agentd.conf
-   notify: restart zabbix-agent
+- name: Download Zabbix Ubuntu 16 (Xenial) release deb file
+  get_url: 
+   url="http://repo.zabbix.com/zabbix/3.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_3.2-1+xenial_all.deb"
+   dest="/tmp/zabbix-release_3.2-1.deb"
+  when: ansible_os_family == "Debian" and ansible_distribution == "Ubuntu" and ansible_distribution_major_version|int == 16
 
- - name: Create log directory
-   file: 
-    path: /var/log/zabbix state=directory owner=zabbix group=zabbix mode=0775
-   when: not zabbix_agent_installed.stat.exists
+- name: Download Zabbix Ubuntu 14 (Trusty) release deb file
+  get_url: 
+   url="http://repo.zabbix.com/zabbix/3.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_3.2-1+trusty_all.deb"
+   dest="/tmp/zabbix-release_3.2-1.deb"
+  when: ansible_os_family == "Debian" and ansible_distribution == "Ubuntu" and ansible_distribution_major_version|int == 14
 
- - name: Start Zabbix agent service
-   service: 
-    name: zabbix-agent state=started enabled=yes
-   ignore_errors: yes
-   register: zabbix_service
-   when: not zabbix_agent_installed.stat.exists
- - name: "Debian | Enable the service"
-   service:
-    name: "{{ zabbix_agent_service }}"
-    enabled: yes
-    use: service
-   tags:
-    - zabbix-agent
-    - init
-    - service
+- name: Apt install Zabbix release in Ubuntu/Debian
+  apt: 
+   deb: /tmp/zabbix-release_4.0-2.deb
+  when: ansible_os_family == "Debian"
+>>>>>>> d0ab26aaa316f32fcd917971bfbf84cc3c00ab56
+ 
+- name: Apt install Zabbix agent
+  apt:
+    name: zabbix-agent
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Configure zabbix-agent
+  template:
+   src: /etc/ansible/roles/common/templates/zabbix_agent.conf.j2
+   dest: /etc/zabbix/zabbix_agentd.conf
+  notify: restart zabbix-agent
+
+- name: Create log directory
+  file: 
+   path: /var/log/zabbix 
+   state: directory 
+   owner: zabbix 
+   group: zabbix 
+   mode: 0775
+  when: not zabbix_agent_installed.stat.exists
+
+- name: Start Zabbix agent service
+  service: 
+   name: zabbix-agent state=started enabled=yes
+  ignore_errors: yes
+  register: zabbix_service
+  when: not zabbix_agent_installed.stat.exists
+
+- name: "Debian | Enable the service"
+  service:
+   name: "{{ zabbix_agent_service }}"
+   enabled: yes
+   use: service
+  tags:
+   - zabbix-agent
+   - init
+   - service
