@@ -1,5 +1,5 @@
 ---
-- include: install_mx.yml
-- include: add_user.yml
-- include: ntp.yml
+#- include: install_mx.yml
+#- include: add_user.yml
+#- include: ntp.yml
 - include: zabbix_agent.yml

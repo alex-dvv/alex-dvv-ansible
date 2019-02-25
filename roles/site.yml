@@ -3,15 +3,15 @@
 #  remote_user: root
 
   roles:
-    - Bareos
+  #  - Bareos
   # - zabbix-agent
-  #  - common  
+    - common  
    #### - openvpn
 
-  post_tasks:
-    - name: OpenVPN | install | Restart system after setup
-      shell: sleep 2 && shutdown -r now "Restart for OpenVPN install"
-      async: 1
-      poll: 0
-      ignore_errors: true
-      changed_when: false
+#  post_tasks:
+#    - name: OpenVPN | install | Restart system after setup
+#      shell: sleep 2 && shutdown -r now "Restart for OpenVPN install"
+#      async: 1
+#      poll: 0
+#      ignore_errors: true
+#      changed_when: false
