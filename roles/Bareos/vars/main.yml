@@ -6,16 +6,16 @@
 # Fill in appropriate values below unless passing from a higher precedence
 
 # Имя хоста машины, для которой вы создаете резервную копию
-add_job_to_bareos_director_host_name: "msk-fileserver"
+add_job_to_bareos_director_host_name: "ws1383"
 
 # Полное доменное имя или IP-адрес компьютера, который вы добавляете для резервного копирования
-add_job_to_bareos_director_server_fqdn: "172.0.0.107"
+add_job_to_bareos_director_server_fqdn: "172.0.5.55"
 
 # Полное доменное имя или IP-адрес, где работает демон / служба Bareos Storage.
 add_bareos_storage_daemon_fqdn: "backup-disk3"
 
 # Пароль должен соответствовать введенному клиентскому паролю при добавлении клиентской программы bareos на компьютер, который вы хотите сделать резервную копию. Значение для этого обычно является очень длинной строкой (47 символов) случайных символов.
-add_job_to_bareos_director_client_password: "FS/tNxEM3FYzH299frpGaNgWYCAeYz2tb3nOqyhSPqgl"
+add_job_to_bareos_director_client_password: "KjOy25FcMXCP6hrsU0fsB57dooMYBaM0qYwuZy5nq1Zm"
 
 # The storage director password variable is the bareos-dir password found on your Bareos Server
 #add_job_to_bareos_director_storage_director_password: "{{ lookup('env', 'BAREOS_STORAGE_PASSWORD') }}"
@@ -38,10 +38,10 @@ add_job_to_bareos_director_backup_schedule:
 add_job_to_bareos_director_archive_device: "/z-storage/backups/{{ add_job_to_bareos_director_host_name }}"
 # Файлы которые будут бекапится
 add_job_to_bareos_director_filesets_to_backup:
-  - File = "/var/www/html"
-  - File = "/backups/mysql/current"
+  - File = "/c/Users/Anton.Antokhin"
+#  - File = "/backups/mysql/current"
 # Файлы которые будут исключены из бекапа
 add_job_to_bareos_director_filesets_to_exclude:
-  - File = "/var/www/html/.github"
-  - File = "/var/www/html/.git"
-  - File = "/var/www/html/.gitignore"
+  - File = "/c/Users/Anton.Antokhin/AppData"
+#  - File = "/var/www/html/.git"
+#  - File = "/var/www/html/.gitignore"

@@ -8,7 +8,7 @@ ntp_enabled: True
 #
 
 packages:
-      - open-vm-tools
+    #  - open-vm-tools
       - nano
       - sudo
       - ntp 
