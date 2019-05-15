@@ -44,6 +44,8 @@
 [test]
 #172.0.3.37
 172.0.2.245
+#172.0.2.225
+#172.0.0.65
 #ansible_ssh_user=administrator 
 [windows]
 #windowstest3 ansible_host=172.0.3.42
